@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:alpine3.20
+    container_name: dev_postgres
+    environment:
+      POSTGRES_USER: dev
+      POSTGRES_PASSWORD: dev
+      POSTGRES_PORT: 7878
+    command: -p 7878
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    tty: true
+    ports:
+      - "7878:7878"
+
+volumes:
+  postgres_data:
